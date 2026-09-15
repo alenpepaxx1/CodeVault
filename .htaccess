@@ -1,0 +1,11 @@
+# Copyright (c) 2026 Alen Pepa. All rights reserved.
+Options -Indexes
+ServerSignature Off
+<FilesMatch "(^\.|\.sqlite$|\.db$|\.log$)">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
